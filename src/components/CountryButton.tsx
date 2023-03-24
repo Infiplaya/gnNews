@@ -1,4 +1,5 @@
 import { Button, Flex, Image, Text } from '@mantine/core'
+import { Link } from 'react-router-dom'
 
 interface Country {
     name: string
@@ -7,13 +8,18 @@ interface Country {
 
 export default function CountryButton({ country }: { country: Country }) {
     return (
-        <Button variant={'subtle'} color="indigo" style={{ textAlign: 'left' }}>
-            <Flex align={'center'} gap={'md'}>
-                <Text>{country.name}</Text>
+        <Link to={`country/${country.name.toLowerCase()}`}>
+            <Button
+                variant={'subtle'}
+                color="indigo"
+                style={{ textAlign: 'left', display: 'flex' }}
+            >
                 <Image
+                    mr="sm"
                     src={`https://flagsapi.com/${country.code}/flat/16.png`}
                 ></Image>
-            </Flex>
-        </Button>
+                <Text>{country.name}</Text>
+            </Button>
+        </Link>
     )
 }

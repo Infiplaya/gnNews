@@ -20,11 +20,11 @@ export default function Sidenav({ opened }: { opened: boolean }) {
         >
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                 <Group>
-                    <Text>Change View</Text>
+                    <Text size={"sm"}>Change View</Text>
                     <ViewButtons />
                 </Group>
             </MediaQuery>
-            <Navbar.Section grow component={ScrollArea}>
+            <Navbar.Section grow component={ScrollArea} mt="md">
                 <Flex direction="column">
                     {countriesData.map((country) => (
                         <CountryButton country={country} key={country.code} />
