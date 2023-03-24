@@ -1,9 +1,10 @@
 import { Anchor, Badge, Card, Group, Image, Popover, Text } from '@mantine/core'
 import { Article } from '../types/news'
+import dayjs from 'dayjs'
 
 export default function NewsCard({ article }: { article: Article }) {
     return (
-        <div style={{ cursor: 'pointer' }}>
+        <div style={{ cursor: 'pointer', height: '100%' }}>
             <Popover width={200} position="bottom-start" withArrow shadow="md">
                 <Popover.Target>
                     <Card
@@ -11,6 +12,7 @@ export default function NewsCard({ article }: { article: Article }) {
                         padding="lg"
                         radius="md"
                         withBorder
+                        style={{ height: '100%' }}
                     >
                         <Card.Section>
                             <Image
@@ -24,7 +26,9 @@ export default function NewsCard({ article }: { article: Article }) {
                         <Group position="apart" mt="md" mb="xs">
                             <Text weight={500}>{article.title}</Text>
                             <Badge color="pink" variant="light">
-                                {article.publishedAt}
+                                {dayjs(article.publishedAt).format(
+                                    'DD/MM/YYYY'
+                                )}
                             </Badge>
                         </Group>
                         <Text size="sm" color="dimmed">

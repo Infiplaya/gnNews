@@ -53,6 +53,9 @@ export default function Feed() {
                         { maxWidth: '48rem', cols: 2, spacing: 'sm' },
                         { maxWidth: '36rem', cols: 1, spacing: 'sm' },
                     ]}
+                    style={{
+                        gridAutoRows: "1fr"
+                    }}
                 >
                     {data?.articles.map((article) => (
                         <NewsCard article={article} key={article.title} />
