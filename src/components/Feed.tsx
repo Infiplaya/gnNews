@@ -25,11 +25,37 @@ export default function Feed() {
     const view = useAppSelector((state) => state.view)
 
     if (isLoading) {
-        return <Loader />
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    height: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingRight:
+                        'calc(var(--mantine-navbar-width, 0px))',
+                }}
+            >
+                <Loader />
+            </div>
+        )
     }
 
     if (isError) {
-        return <div>Error loading data</div>
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    height: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingRight:
+                        'calc(var(--mantine-navbar-width, 0px))',
+                }}
+            >
+                Error loading data
+            </div>
+        )
     }
 
     return (
@@ -54,7 +80,7 @@ export default function Feed() {
                         { maxWidth: '36rem', cols: 1, spacing: 'sm' },
                     ]}
                     style={{
-                        gridAutoRows: "1fr"
+                        gridAutoRows: '1fr',
                     }}
                 >
                     {data?.articles.map((article) => (
