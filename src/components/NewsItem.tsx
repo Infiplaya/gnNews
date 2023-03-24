@@ -1,5 +1,4 @@
 import { Anchor, Badge, Group, List, Popover, Text } from '@mantine/core'
-import React from 'react'
 import { Article } from '../types/news'
 
 export default function NewsItem({article}: {article: Article}) {
