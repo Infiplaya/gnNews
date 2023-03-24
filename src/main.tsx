@@ -5,6 +5,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'
+
 import { MantineProvider } from '@mantine/core';
 
 import Root from './routes/root';
@@ -30,10 +35,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
     <MantineProvider withGlobalStyles withNormalizeCSS>
     <RouterProvider router={router} />
     </MantineProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )
