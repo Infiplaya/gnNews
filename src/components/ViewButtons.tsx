@@ -1,4 +1,4 @@
-import { Button, Menu, Select } from '@mantine/core';
+import { Button, MediaQuery, Menu, Select } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 
@@ -13,7 +13,7 @@ export default function ViewButtons() {
   }
 
   return (
-    <div style={{display: 'flex', gap: '10px'}}>
+      <div style={{display: 'flex', gap: '10px'}}>
     <Button onClick={() => handleClick('list')} variant={view === 'list' ? 'gradient' : 'outline'}>
       List
     </Button>

@@ -7,7 +7,7 @@ export default function NewsCard({article}: {article: Article}) {
     <div style={{cursor: 'pointer'}}>
     <Popover width={200} position="bottom-start" withArrow shadow="md">
       <Popover.Target>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
+      <Card shadow="sm" padding="lg" radius="md" withBorder style={{height: "22rem"}}>
         <Card.Section>
           <Image
             src={article.urlToImage}

@@ -1,4 +1,4 @@
-import {List, Loader} from "@mantine/core";
+import {Grid, List, Loader, SimpleGrid} from "@mantine/core";
 import { useQuery } from "react-query"
 import { useAppSelector } from "../hooks";
 import { News } from "../types/news";
@@ -32,7 +32,7 @@ export default function Feed() {
   }
 
   return (
-    <>
+    <div style={{paddingRight: '2rem', paddingLeft: '2rem'}}>
     {view === 'list' ? (
     <List
       spacing="lg"
@@ -45,12 +45,17 @@ export default function Feed() {
       ))
     }
     </List>): 
-      <div className="card-grid">
+      <SimpleGrid cols={4}  spacing="lg" verticalSpacing="lg"
+      breakpoints={[
+        { maxWidth: '62rem', cols: 3, spacing: 'md' },
+        { maxWidth: '48rem', cols: 2, spacing: 'sm' },
+        { maxWidth: '36rem', cols: 1, spacing: 'sm' },
+      ]}>
         {data?.articles.map((article) => (
           <NewsCard article={article} key={article.title} />
         ))}
-      </div>
+      </SimpleGrid>
     }
-    </>
+    </div>
   )
 }

@@ -22,7 +22,7 @@ export default function HeaderComponent({opened, handleOpened, theme}: Props) {
                 />
               </MediaQuery>
                 <Anchor href="/" underline={false}><Title>GnNews</Title></Anchor>
-                <ViewButtons />
+                    <ViewButtons />
                 <Popover width={200} position="bottom" withArrow shadow="md">
                     <Popover.Target>
                         <Button>Kliknij</Button>
