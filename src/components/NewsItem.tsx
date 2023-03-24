@@ -12,7 +12,9 @@ export default function NewsItem({ article }: { article: Article }) {
                         <Group>
                             <Text>{article.source.name}</Text>
                             <Badge color="grape">
-                                {dayjs(article.publishedAt).format('DD/MM/YYYY')}
+                                {dayjs(article.publishedAt).format(
+                                    'DD/MM/YYYY'
+                                )}
                             </Badge>
                         </Group>
                     </div>

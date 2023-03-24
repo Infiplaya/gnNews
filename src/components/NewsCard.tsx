@@ -25,7 +25,7 @@ export default function NewsCard({ article }: { article: Article }) {
 
                         <Group position="apart" mt="md" mb="xs">
                             <Text weight={500}>{article.title}</Text>
-                            <Badge color="pink" variant="light">
+                            <Badge color="grape">
                                 {dayjs(article.publishedAt).format(
                                     'DD/MM/YYYY'
                                 )}
