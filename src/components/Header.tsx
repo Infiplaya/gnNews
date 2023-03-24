@@ -17,10 +17,7 @@ interface Props {
     handleOpened: () => void
 }
 
-export default function HeaderComponent({
-    opened,
-    handleOpened,
-}: Props) {
+export default function HeaderComponent({ opened, handleOpened }: Props) {
     return (
         <Header height={{ base: 60, md: 80 }} p="md">
             <div
@@ -49,7 +46,7 @@ export default function HeaderComponent({
                 </MediaQuery>
                 <Popover width={200} position="bottom" withArrow shadow="md">
                     <Popover.Target>
-                        <Button>Kliknij</Button>
+                        <Button>Click me</Button>
                     </Popover.Target>
                     <Popover.Dropdown>
                         <Text size="sm">TODO</Text>

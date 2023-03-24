@@ -35,10 +35,12 @@ export default function Feed() {
     return (
         <div style={{ paddingRight: '2rem', paddingLeft: '2rem' }}>
             {view === 'list' ? (
-                <List spacing="lg" size="sm" center listStyleType="none">
+                <List spacing="xl" size="sm" center listStyleType="none">
                     {' '}
                     {data?.articles.map((article) => (
-                        <NewsItem article={article} key={article.title} />
+                        <List.Item key={article.title}>
+                            <NewsItem article={article} />
+                        </List.Item>
                     ))}
                 </List>
             ) : (

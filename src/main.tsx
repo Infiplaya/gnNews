@@ -14,10 +14,10 @@ import { MantineProvider } from '@mantine/core';
 
 import Root from './routes/root';
 import ErrorPage from './error-page';
-import Country from './components/Country';
 import Feed from './components/Feed';
 import { Provider } from 'react-redux';
 import store from './store';
+import CountryFeed from './components/CountryFeed';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "country/:kraj",
-        element: <Country />,
+        element: <CountryFeed />,
       },
     ],
   },

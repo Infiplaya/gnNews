@@ -6,7 +6,7 @@ export default function NewsItem({ article }: { article: Article }) {
         <div style={{ cursor: 'pointer' }}>
             <Popover position="bottom-start" width={200} shadow="md">
                 <Popover.Target>
-                    <List.Item>
+                    
                         <div>
                             <Text weight={500}>{article.title}</Text>
                             <Group>
@@ -16,7 +16,6 @@ export default function NewsItem({ article }: { article: Article }) {
                                 </Badge>
                             </Group>
                         </div>
-                    </List.Item>
                 </Popover.Target>
                 <Popover.Dropdown>
                     <Text weight={500}>{article.author}</Text>

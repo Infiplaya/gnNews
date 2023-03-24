@@ -1,4 +1,13 @@
-import { Group, MediaQuery, Navbar, Text } from '@mantine/core'
+import {
+    Flex,
+    Group,
+    MediaQuery,
+    Navbar,
+    ScrollArea,
+    Text,
+} from '@mantine/core'
+import countriesData from '../data.json'
+import CountryButton from './CountryButton'
 import ViewButtons from './ViewButtons'
 
 export default function Sidenav({ opened }: { opened: boolean }) {
@@ -15,6 +24,13 @@ export default function Sidenav({ opened }: { opened: boolean }) {
                     <ViewButtons />
                 </Group>
             </MediaQuery>
+            <Navbar.Section grow component={ScrollArea}>
+                <Flex direction="column">
+                    {countriesData.map((country) => (
+                        <CountryButton country={country} key={country.code} />
+                    ))}
+                </Flex>
+            </Navbar.Section>
         </Navbar>
     )
 }
