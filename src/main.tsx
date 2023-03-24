@@ -16,6 +16,8 @@ import Root from './routes/root';
 import ErrorPage from './error-page';
 import Country from './components/Country';
 import Feed from './components/Feed';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const router = createBrowserRouter([
   {
@@ -39,10 +41,12 @@ const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-    <RouterProvider router={router} />
-    </MantineProvider>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <RouterProvider router={router} />
+      </MantineProvider>
+      </QueryClientProvider>
+    </Provider>
   </React.StrictMode>,
 )

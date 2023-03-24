@@ -1,5 +1,6 @@
 import {List, Loader} from "@mantine/core";
 import { useQuery } from "react-query"
+import { useAppSelector } from "../hooks";
 import { News } from "../types/news";
 import NewsCard from "./NewsCard";
 import NewsItem from "./NewsItem";
@@ -19,6 +20,9 @@ return response.json();
 export default function Feed() {
   const {data, isLoading, isError} = useQuery('news', getNews)
 
+  const view = useAppSelector((state) => state.view)
+
+
   if (isLoading) {
     return <Loader />
   }
@@ -28,21 +32,25 @@ export default function Feed() {
   }
 
   return (
-    <div className="card-grid">
-      {data?.articles.map((article) => (
-        <NewsCard article={article} />
-      ))}
-      <List
-      spacing="xs"
+    <>
+    {view === 'list' ? (
+    <List
+      spacing="lg"
       size="sm"
       center
       listStyleType="none"
     > {
       data?.articles.map((article) => (
-        <NewsItem article={article}/>
+        <NewsItem article={article} key={article.title}/>
       ))
     }
-    </List>
-    </div>
+    </List>): 
+      <div className="card-grid">
+        {data?.articles.map((article) => (
+          <NewsCard article={article} key={article.title} />
+        ))}
+      </div>
+    }
+    </>
   )
 }

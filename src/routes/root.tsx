@@ -1,6 +1,8 @@
 import { AppShell, Aside, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme, Footer } from "@mantine/core"
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
+import ViewButtons from "../components/ViewButtons";
+import SelectView from "../components/ViewButtons";
 
 function Root() {
     const theme = useMantineTheme();
@@ -25,8 +27,8 @@ function Root() {
           </Footer>
         }
         header={
-          <Header height={{ base: 50, md: 70 }} p="md">
-            <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+          <Header height={{ base: 50, md: 80 }} p="md">
+            <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: "space-between" }}>
               <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                 <Burger
                   opened={opened}
@@ -36,8 +38,8 @@ function Root() {
                   mr="xl"
                 />
               </MediaQuery>
-  
-              <Text>Application header</Text>
+                <Text>Application header</Text>
+                <ViewButtons />
             </div>
           </Header>
         }
