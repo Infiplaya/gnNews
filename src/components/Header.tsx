@@ -2,6 +2,8 @@ import {
     Anchor,
     Burger,
     Button,
+    Flex,
+    Group,
     Header,
     MediaQuery,
     Popover,
@@ -23,7 +25,7 @@ export default function HeaderComponent({
     theme,
 }: Props) {
     return (
-        <Header height={{ base: 50, md: 80 }} p="md">
+        <Header height={{ base: 60, md: 80 }} p="md">
             <div
                 style={{
                     display: 'flex',
@@ -41,17 +43,14 @@ export default function HeaderComponent({
                         mr="xl"
                     />
                 </MediaQuery>
-                <Burger
-                    opened={opened}
-                    onClick={handleOpened}
-                    size="sm"
-                    color={theme.colors.gray[6]}
-                    mr="xl"
-                />
                 <Anchor href="/" underline={false}>
                     <Title>GnNews</Title>
                 </Anchor>
-                <ViewButtons />
+                <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+                    <Group>
+                        <ViewButtons />
+                    </Group>
+                </MediaQuery>
                 <Popover width={200} position="bottom" withArrow shadow="md">
                     <Popover.Target>
                         <Button>Kliknij</Button>
