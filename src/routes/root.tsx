@@ -1,6 +1,7 @@
 import { AppShell, Aside, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme, Footer } from "@mantine/core"
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
+import FooterComponent from "../components/Footer";
 import ViewButtons from "../components/ViewButtons";
 import SelectView from "../components/ViewButtons";
 
@@ -22,9 +23,7 @@ function Root() {
           </Navbar>
         }
         footer={
-          <Footer height={60} p="md">
-            Application footer
-          </Footer>
+          <FooterComponent />
         }
         header={
           <Header height={{ base: 50, md: 80 }} p="md">

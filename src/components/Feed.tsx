@@ -5,7 +5,7 @@ import { News } from "../types/news";
 import NewsCard from "./NewsCard";
 import NewsItem from "./NewsItem";
 
-async function getNews(): Promise<News> {
+export async function getNews(): Promise<News> {
   const response = await fetch(`https://newsapi.org/v2/top-headlines?country=pl&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`);
 
   if (!response.ok) {
