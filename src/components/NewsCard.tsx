@@ -11,7 +11,6 @@ export default function NewsCard({ article }: { article: Article }) {
                         padding="lg"
                         radius="md"
                         withBorder
-                        style={{ height: '22rem' }}
                     >
                         <Card.Section>
                             <Image

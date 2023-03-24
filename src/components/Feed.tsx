@@ -1,4 +1,4 @@
-import { Grid, List, Loader, SimpleGrid } from '@mantine/core'
+import { List, Loader, SimpleGrid } from '@mantine/core'
 import { useQuery } from 'react-query'
 import { useAppSelector } from '../hooks'
 import { News } from '../types/news'

@@ -8,7 +8,7 @@ interface Country {
 
 export default function CountryButton({ country }: { country: Country }) {
     return (
-        <Link to={`country/${country.name.toLowerCase()}`}>
+        <Link to={`country/${country.code.toLowerCase()}`}>
             <Button
                 variant={'subtle'}
                 color="indigo"
