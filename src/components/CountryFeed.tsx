@@ -22,7 +22,6 @@ export async function getCountryNews(kraj: string): Promise<News> {
 
 export default function CountryFeed() {
     const params = useParams()
-    console.log(params.kraj)
     const { data, isLoading, isError } = useQuery(
         ['countryNews', params.kraj],
         () => getCountryNews(params.kraj as string)
