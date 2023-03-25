@@ -28,7 +28,7 @@ export default function CountryFeed() {
         () => getCountryNews(params.kraj as string)
     )
 
-    const view = useAppSelector((state) => state.view)
+    const view = useAppSelector((state) => state.view.value)
 
     if (isLoading) {
         return <Loader />
