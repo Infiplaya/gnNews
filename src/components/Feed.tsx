@@ -22,7 +22,7 @@ export async function getNews(): Promise<News> {
 export default function Feed() {
     const { data, isLoading, isError } = useQuery('news', getNews)
 
-    const view = useAppSelector((state) => state.view)
+    const view = useAppSelector((state) => state.view.value)
 
     if (isLoading) {
         return (
@@ -32,8 +32,7 @@ export default function Feed() {
                     height: '100%',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    paddingRight:
-                        'calc(var(--mantine-navbar-width, 0px))',
+                    paddingRight: 'calc(var(--mantine-navbar-width, 0px))',
                 }}
             >
                 <Loader />
@@ -49,8 +48,7 @@ export default function Feed() {
                     height: '100%',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    paddingRight:
-                        'calc(var(--mantine-navbar-width, 0px))',
+                    paddingRight: 'calc(var(--mantine-navbar-width, 0px))',
                 }}
             >
                 Error loading data

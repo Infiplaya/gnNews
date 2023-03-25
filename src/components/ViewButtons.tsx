@@ -1,14 +1,14 @@
-import { Button, MediaQuery, Menu, Select } from '@mantine/core'
-import { useEffect, useState } from 'react'
+import { Button } from '@mantine/core'
 import { useAppDispatch, useAppSelector } from '../hooks'
+import { changeView } from '../store'
 
 export default function ViewButtons() {
-    const view = useAppSelector((state) => state.view)
+    const view = useAppSelector((state) => state.view.value)
 
     const dispatch = useAppDispatch()
 
     function handleClick(view: 'list' | 'tiles') {
-        dispatch({ type: 'CHANGE_VIEW', payload: view })
+        dispatch(changeView(view))
     }
 
     return (
