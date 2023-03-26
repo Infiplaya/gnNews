@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
 import { MantineProvider } from '@mantine/core'
-
 import Root from './routes/root'
 import ErrorPage from './error-page'
 import Feed from './components/Feed'
