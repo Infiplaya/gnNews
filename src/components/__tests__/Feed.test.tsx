@@ -1,14 +1,14 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { createStore } from '../../store'
-import ViewButtons from '../ViewButtons'
+import Feed from '../Feed'
 
 describe('ViewButtons', () => {
     test('renders the component', () => {
         const store = createStore()
         render(
             <Provider store={store}>
-                <ViewButtons />
+                <Feed />
             </Provider>
         )
 
@@ -20,7 +20,7 @@ describe('ViewButtons', () => {
         const store = createStore()
         render(
             <Provider store={store}>
-                <ViewButtons />
+                <Feed />
             </Provider>
         )
 

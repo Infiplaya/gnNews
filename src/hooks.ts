@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { getCountryNews } from './components/CountryFeed'
-import { getNews } from './components/Feed'
+import { getCountryNews } from './utils/getCountryNews'
+import { getNews } from './utils/getNews'
 import { AppDispatch, RootState } from './store'
 
 export const useAppDispatch: () => AppDispatch = useDispatch

@@ -6,10 +6,10 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { MantineProvider } from '@mantine/core'
 import Root from './routes/root'
 import ErrorPage from './error-page'
-import Feed from './components/Feed'
 import { Provider } from 'react-redux'
-import store from './store'
-import CountryFeed from './components/CountryFeed'
+import { store } from './store'
+import IndexPage from './routes'
+import CountryPage from './routes/country'
 
 const router = createBrowserRouter([
     {
@@ -19,11 +19,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Feed />,
+                element: <IndexPage />,
             },
             {
                 path: 'country/:kraj',
-                element: <CountryFeed />,
+                element: <CountryPage />,
             },
         ],
     },

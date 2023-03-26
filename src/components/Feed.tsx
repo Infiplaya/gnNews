@@ -5,54 +5,10 @@ import { News } from '../types/news'
 import NewsCard from './NewsCard'
 import NewsItem from './NewsItem'
 
-export async function getNews(): Promise<News> {
-    const response = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=pl&apiKey=${
-            import.meta.env.VITE_NEWS_API_KEY
-        }`
-    )
-    if (!response.ok) {
-        throw new Error(`Something went wrong with fetching news`)
-    }
-    return response.json()
-}
 
-export default function Feed() {
-    const { data, isLoading, isError } = useNewsQuery()
 
+export default function Feed({ data }: { data: News | undefined }) {
     const view = useAppSelector((state) => state.view.value)
-
-    if (isLoading) {
-        return (
-            <div
-                style={{
-                    display: 'flex',
-                    height: '100%',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingRight: 'calc(var(--mantine-navbar-width, 0px))',
-                }}
-            >
-                <Loader />
-            </div>
-        )
-    }
-
-    if (isError) {
-        return (
-            <div
-                style={{
-                    display: 'flex',
-                    height: '100%',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingRight: 'calc(var(--mantine-navbar-width, 0px))',
-                }}
-            >
-                Error loading data
-            </div>
-        )
-    }
 
     return (
         <div style={{ paddingRight: '2rem', paddingLeft: '2rem' }}>

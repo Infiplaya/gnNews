@@ -1,5 +1,4 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 interface NewsState {
     value: 'list' | 'tiles'
@@ -23,13 +22,13 @@ export const { changeView } = viewSlice.actions
 
 export const selectView = (state: RootState) => state.view
 
-const store = configureStore({
-    reducer: {
-        view: viewSlice.reducer,
-    },
-})
+export const createStore = () =>
+    configureStore({
+        reducer: {
+            view: viewSlice.reducer,
+        },
+    })
+export const store = createStore()
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-
-export default store
