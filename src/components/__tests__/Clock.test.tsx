@@ -4,7 +4,6 @@ import { vi } from 'vitest'
 import Clock from '../Time'
 
 describe('Clock', () => {
-    // Mocking the setInterval and clearInterval functions
     vi.useFakeTimers()
 
     beforeEach(() => {
@@ -18,7 +17,6 @@ describe('Clock', () => {
         expect(currentTimeText).toBeInTheDocument()
         expect(currentTimeText).toHaveTextContent('Current Time:')
 
-        // Fast-forward 1 second to trigger the setInterval callback
         act(() => {
             vi.advanceTimersByTime(1000)
         })

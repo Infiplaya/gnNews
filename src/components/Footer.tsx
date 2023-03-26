@@ -1,10 +1,9 @@
 import { Footer, Group, Text } from '@mantine/core'
-import { useQuery } from 'react-query'
-import { getNews } from './Feed'
+import { useNewsQuery } from '../hooks'
 import Clock from './Time'
 
 export default function FooterComponent() {
-    const { data: newsData } = useQuery('news', getNews)
+    const { data } = useNewsQuery()
     return (
         <Footer height={60} p="md">
             <Group
@@ -14,7 +13,7 @@ export default function FooterComponent() {
                     justifyContent: 'center',
                 }}
             >
-                <Text size="sm">News count: {newsData?.articles.length}</Text>
+                <Text size="sm">News count: {data?.articles.length}</Text>
                 <Clock />
             </Group>
         </Footer>

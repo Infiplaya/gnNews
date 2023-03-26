@@ -1,6 +1,6 @@
 import { List, Loader, SimpleGrid } from '@mantine/core'
 import { useQuery } from 'react-query'
-import { useAppSelector } from '../hooks'
+import { useAppSelector, useNewsQuery } from '../hooks'
 import { News } from '../types/news'
 import NewsCard from './NewsCard'
 import NewsItem from './NewsItem'
@@ -11,16 +11,14 @@ export async function getNews(): Promise<News> {
             import.meta.env.VITE_NEWS_API_KEY
         }`
     )
-
     if (!response.ok) {
         throw new Error(`Something went wrong with fetching news`)
     }
-
     return response.json()
 }
 
 export default function Feed() {
-    const { data, isLoading, isError } = useQuery('news', getNews)
+    const { data, isLoading, isError } = useNewsQuery()
 
     const view = useAppSelector((state) => state.view.value)
 

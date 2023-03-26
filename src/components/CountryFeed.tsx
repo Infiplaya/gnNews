@@ -1,7 +1,6 @@
 import { List, Loader, SimpleGrid } from '@mantine/core'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
-import { useAppSelector } from '../hooks'
+import { useAppSelector, useCountryNewsQuery } from '../hooks'
 import { News } from '../types/news'
 import NewsCard from './NewsCard'
 import NewsItem from './NewsItem'
@@ -22,9 +21,8 @@ export async function getCountryNews(kraj: string): Promise<News> {
 
 export default function CountryFeed() {
     const params = useParams()
-    const { data, isLoading, isError } = useQuery(
-        ['countryNews', params.kraj],
-        () => getCountryNews(params.kraj as string)
+    const { data, isLoading, isError } = useCountryNewsQuery(
+        params.kraj as string
     )
 
     const view = useAppSelector((state) => state.view.value)
