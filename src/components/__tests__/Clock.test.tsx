@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import { vi } from 'vitest'
-import Clock from '../Time'
+import Time from '../Time'
 
-describe('Clock', () => {
+describe('Current Time', () => {
     vi.useFakeTimers()
 
     beforeEach(() => {
@@ -11,7 +11,7 @@ describe('Clock', () => {
     })
 
     it('displays the current time', () => {
-        render(<Clock />)
+        render(<Time />)
         const currentTimeText = screen.getByText(/Current Time:/)
 
         expect(currentTimeText).toBeInTheDocument()
@@ -26,7 +26,7 @@ describe('Clock', () => {
     })
 
     it('clears the interval when the component unmounts', () => {
-        const { unmount } = render(<Clock />)
+        const { unmount } = render(<Time />)
 
         expect(vi.getTimerCount()).toBe(1)
 

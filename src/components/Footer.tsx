@@ -1,6 +1,6 @@
 import { Footer, Group, Text } from '@mantine/core'
 import { useNewsQuery } from '../hooks'
-import Clock from './Time'
+import Time from './Time'
 
 export default function FooterComponent() {
     const { data } = useNewsQuery()
@@ -14,7 +14,7 @@ export default function FooterComponent() {
                 }}
             >
                 <Text size="sm">News count: {data?.articles.length}</Text>
-                <Clock />
+                <Time />
             </Group>
         </Footer>
     )
