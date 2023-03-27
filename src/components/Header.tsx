@@ -2,7 +2,6 @@ import {
     Anchor,
     Burger,
     Button,
-    Flex,
     Group,
     Header,
     MediaQuery,
@@ -11,13 +10,21 @@ import {
     Title,
 } from '@mantine/core'
 import ViewButtons from './ViewButtons'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
     opened: boolean
     handleOpened: () => void
 }
 
+export const lngs = {
+    en: { nativeName: 'English' },
+    pl: { nativeName: 'Polish' },
+}
+
 export default function HeaderComponent({ opened, handleOpened }: Props) {
+    const { t, i18n } = useTranslation()
+
     return (
         <Header height={{ base: 60, md: 80 }} p="md">
             <div
@@ -25,7 +32,8 @@ export default function HeaderComponent({ opened, handleOpened }: Props) {
                     display: 'flex',
                     alignItems: 'center',
                     height: '100%',
-                    justifyContent: 'space-between',
+                    justifyContent: 'flex-start',
+                    gap: '40px',
                 }}
             >
                 <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
@@ -36,17 +44,38 @@ export default function HeaderComponent({ opened, handleOpened }: Props) {
                         mr="xl"
                     />
                 </MediaQuery>
-                <Anchor href="/" underline={false}>
+                <Anchor
+                    href="/"
+                    underline={false}
+                    style={{ marginRight: 'auto' }}
+                >
                     <Title>GnNews</Title>
                 </Anchor>
                 <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
                     <Group>
                         <ViewButtons />
+                        <div style={{marginLeft: '20px'}}>
+                            {Object.keys(lngs).map((lng) => (
+                                <Button
+                                    key={lng}
+                                    variant={
+                                        lng === i18n.resolvedLanguage
+                                            ? 'outline'
+                                            : 'subtle'
+                                    }
+                                    color={'grape'}
+                                    size={'xs'}
+                                    onClick={() => i18n.changeLanguage(lng)}
+                                >
+                                    {lngs[lng].nativeName}
+                                </Button>
+                            ))}
+                        </div>
                     </Group>
                 </MediaQuery>
                 <Popover width={200} position="bottom" withArrow shadow="md">
                     <Popover.Target>
-                        <Button>Click me</Button>
+                        <Button>{t('clickme')}</Button>
                     </Popover.Target>
                     <Popover.Dropdown>
                         <Text size="sm">TODO</Text>

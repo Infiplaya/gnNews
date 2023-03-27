@@ -1,8 +1,10 @@
 import { Group, Text } from '@mantine/core'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Time() {
     const [date, setDate] = useState(new Date())
+    const { t } = useTranslation()
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -14,7 +16,7 @@ function Time() {
 
     return (
         <Group>
-            <Text size="sm">Current Time: {date.toLocaleTimeString()}</Text>
+            <Text size="sm">{t('time')}: {date.toLocaleTimeString()}</Text>
         </Group>
     )
 }

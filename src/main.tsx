@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import IndexPage from './routes'
 import CountryPage from './routes/country'
+import '../i18.ts'
 
 const router = createBrowserRouter([
     {

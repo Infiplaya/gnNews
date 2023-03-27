@@ -1,17 +1,14 @@
-import { List, Loader, SimpleGrid } from '@mantine/core'
-import { useQuery } from 'react-query'
-import { useAppSelector, useNewsQuery } from '../hooks'
+import { List, SimpleGrid } from '@mantine/core'
+import { useAppSelector } from '../hooks'
 import { News } from '../types/news'
 import NewsCard from './NewsCard'
 import NewsItem from './NewsItem'
-
-
 
 export default function Feed({ data }: { data: News | undefined }) {
     const view = useAppSelector((state) => state.view.value)
 
     return (
-        <div style={{ paddingRight: '2rem', paddingLeft: '2rem' }}>
+        <div style={{ paddingRight: '2rem', paddingLeft: '2rem' }} role="feed">
             {view === 'list' ? (
                 <List spacing="xl" size="sm" center listStyleType="none">
                     {' '}
