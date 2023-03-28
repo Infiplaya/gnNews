@@ -78,7 +78,15 @@ export default function HeaderComponent({ opened, handleOpened }: Props) {
                         <Button>{t('clickme')}</Button>
                     </Popover.Target>
                     <Popover.Dropdown>
-                        <Text size="sm">TODO</Text>
+                        <Text size="sm">
+                            Największa trudność sprawiły mi testy, ponieważ
+                            pierwszy raz używałem React Testing Library.
+                        </Text>
+                        <Text size="sm">
+                            Największa frajdę sprawiło mi używanie React Query
+                            do pobierania danych z API i budowanie komponentów,
+                            które mają wyświetlać te dane.
+                        </Text>
                     </Popover.Dropdown>
                 </Popover>
             </div>

@@ -19,7 +19,6 @@ i18n
         resources: {
             en: {
                 translation: {
-                    // here we will place our translations...
                     view: {
                         list: 'List',
                         tiles: 'Tiles',
@@ -31,7 +30,6 @@ i18n
             },
             pl: {
                 translation: {
-                    // here we will place our translations...
                     view: {
                         list: 'Lista',
                         tiles: 'Kafelki',
