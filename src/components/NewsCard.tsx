@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 export default function NewsCard({ article }: { article: Article }) {
     return (
         <div style={{ cursor: 'pointer', height: '100%' }}>
-            <Popover width={200} position="bottom-start" withArrow shadow="md">
+            <Popover width="target" position="bottom-end" withArrow shadow="lg">
                 <Popover.Target>
                     <Card
                         shadow="sm"
