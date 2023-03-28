@@ -54,7 +54,7 @@ export default function HeaderComponent({ opened, handleOpened }: Props) {
                 <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
                     <Group>
                         <ViewButtons />
-                        <div style={{marginLeft: '20px'}}>
+                        <div style={{ marginLeft: '20px' }}>
                             {Object.keys(lngs).map((lng) => (
                                 <Button
                                     key={lng}

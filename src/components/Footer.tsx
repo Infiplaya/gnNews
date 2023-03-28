@@ -4,7 +4,7 @@ import Time from './Time'
 import { useTranslation } from 'react-i18next'
 
 export default function FooterComponent() {
-    const { data } = useNewsQuery();
+    const { data } = useNewsQuery()
     const { t } = useTranslation()
     return (
         <Footer height={60} p="md">
@@ -15,7 +15,9 @@ export default function FooterComponent() {
                     justifyContent: 'center',
                 }}
             >
-                <Text size="sm">{t('news')}: {data?.articles.length}</Text>
+                <Text size="sm">
+                    {t('news')}: {data?.articles.length}
+                </Text>
                 <Time />
             </Group>
         </Footer>

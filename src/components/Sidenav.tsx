@@ -24,7 +24,6 @@ export default function Sidenav({ opened }: { opened: boolean }) {
         >
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
                 <Group>
-                    <Text size={'sm'}>Change View</Text>
                     <ViewButtons />
                     <div style={{ marginLeft: '20px' }}>
                         {Object.keys(lngs).map((lng) => (
