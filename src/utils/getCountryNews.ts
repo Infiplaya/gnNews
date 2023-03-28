@@ -1,8 +1,8 @@
-import { News } from "../types/news"
+import { News } from '../types/news'
 
 export async function getCountryNews(kraj: string): Promise<News> {
     const response = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${kraj}&apiKey=${
+        `https://newsapi.org/v2/top-headlines?country=${kraj}&pageSize=100&apiKey=${
             import.meta.env.VITE_NEWS_API_KEY
         }`
     )

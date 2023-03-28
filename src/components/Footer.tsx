@@ -1,10 +1,13 @@
 import { Footer, Group, Text } from '@mantine/core'
-import { useNewsQuery } from '../hooks'
+import { useCountryNewsQuery, useNewsQuery } from '../hooks'
 import Time from './Time'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 
 export default function FooterComponent() {
-    const { data } = useNewsQuery()
+    const params = useParams()
+    const { data: newsData } = useNewsQuery()
+    const { data: countryNewsData } = useCountryNewsQuery(params.kraj as string)
     const { t } = useTranslation()
     return (
         <Footer height={60} p="md">
@@ -16,7 +19,10 @@ export default function FooterComponent() {
                 }}
             >
                 <Text size="sm">
-                    {t('news')}: {data?.articles.length}
+                    {t('news')}:{' '}
+                    {countryNewsData?.totalResults
+                        ? countryNewsData.totalResults
+                        : newsData?.totalResults}
                 </Text>
                 <Time />
             </Group>
